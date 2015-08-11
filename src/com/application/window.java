@@ -9,6 +9,9 @@ import java.awt.BorderLayout;
 
 import javax.swing.JButton;
 
+import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
+import org.fife.ui.rsyntaxtextarea.SyntaxConstants;
+import org.fife.ui.rtextarea.RTextScrollPane;
 import org.omg.CORBA.PRIVATE_MEMBER;
 
 import com.azuredemo.listAutomation;
@@ -22,6 +25,7 @@ import java.awt.Label;
 import java.awt.Button;
 import java.awt.FlowLayout;
 import java.awt.TextField;
+import java.awt.Color;
 
 public class window {
 
@@ -59,44 +63,36 @@ public class window {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		Panel panel = new Panel();
-		frame.getContentPane().add(panel, BorderLayout.NORTH);
-		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		//frame.getContentPane().add(panel, BorderLayout.NORTH);
+		azureRestAPI panelApi=new azureRestAPI();
 		
-		Button button = new Button("first page");
+		frame.getContentPane().add(panel, BorderLayout.CENTER);
+		panel.setLayout(null);
+		
+		Button button = new Button("azure Rest API");
 		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				cl.next(panel_1);
-			}
-		});
-		panel.add(button);
-	
-		
-		Button button_1 = new Button("Execute");
-		button_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				listAutomation listauto=new listAutomation();
-			label.setText(listauto.putAutomation());
-		//listauto.getAutomation();
+			public void actionPerformed(ActionEvent e) {
+				frame.getContentPane().removeAll();
 				
+				frame.getContentPane().invalidate();
+
+				frame.getContentPane().add(panelApi,BorderLayout.CENTER);
+				frame.getContentPane().revalidate();
+				
+				/*frame.getContentPane().add(indexPanelIndex,BorderLayout.CENTER);
+				System.out.println("new panel created");//for debugging purposes
+		          
+				indexPanelIndex.setVisible(true);*/
 			}
 		});
-		panel.add(button_1);
+		button.setBackground(Color.MAGENTA);
+		button.setBounds(10, 47, 95, 30);
+		panel.add(button);
 		
 		
-		frame.getContentPane().add(panel_1, BorderLayout.CENTER);
-		panel_1.setLayout(cl);
-		
-		TextField textField = new TextField();
-		panel_1.add(textField, "name_375986190629600");
-		
-		Label label_1 = new Label("second page");
-		panel_1.add(label_1, "name_375322862775700");
-		
-	    label = new Label("get Automation List");
-		panel_1.add(label, "name_375299192512700");
+
+	  
 		
 	}
-	private Panel panel_1 = new Panel(); 
-	private CardLayout cl=new CardLayout();
-	private Label label;
+	
 }
