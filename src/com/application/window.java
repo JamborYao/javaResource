@@ -33,7 +33,7 @@ import javax.swing.JPanel;
 
 public class window {
 
-	private JFrame frame;
+
 
 	/**
 	 * Launch the application.
@@ -42,11 +42,7 @@ public class window {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					window window = new window();
-					//window.frame.setVisible(true);
-					/*TextEditorDemo rTextEditorDemo=	new TextEditorDemo();
-					
-					rTextEditorDemo.setVisible(false);*/
+					window window = new window();			
 					
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -67,48 +63,6 @@ public class window {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 850, 600);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		Panel panel = new Panel();
-		//frame.getContentPane().add(panel, BorderLayout.NORTH);
-		azureRestAPI panelApi=new azureRestAPI();
-		
-		frame.getContentPane().add(panel, BorderLayout.NORTH);
-		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		
-		JPanel panel_1 = new JPanel();
-		panel.add(panel_1);
-		
 	
-		
-		//rTextEditorDemo.set
-		
-		Button button = new Button("azure Rest API");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frame.getContentPane().removeAll();
-				
-				frame.getContentPane().invalidate();
-
-				frame.getContentPane().add(panelApi,BorderLayout.CENTER);
-				frame.getContentPane().revalidate();
-				
-				/*frame.getContentPane().add(indexPanelIndex,BorderLayout.CENTER);
-				System.out.println("new panel created");//for debugging purposes
-		          
-				indexPanelIndex.setVisible(true);*/
-			}
-		});
-		button.setBackground(Color.MAGENTA);
-		panel.add(button);
-		
-		
-
-	  
-		
-	}
 	
 }

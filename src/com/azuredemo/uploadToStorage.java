@@ -1,5 +1,6 @@
 package com.azuredemo;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 
@@ -7,7 +8,7 @@ import javax.swing.JOptionPane;
 
 import com.common.AzureSettings;
 import com.microsoft.azure.storage.CloudStorageAccount;
-
+import com.microsoft.azure.storage.blob.BlobOutputStream;
 import com.microsoft.azure.storage.blob.CloudBlobClient;
 import com.microsoft.azure.storage.blob.CloudBlobContainer;
 import com.microsoft.azure.storage.blob.CloudBlockBlob;
@@ -49,6 +50,31 @@ public class uploadToStorage implements AzureSettings {
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
+		}
+	}
+	public void readBlob()
+	{
+		try {
+			CloudStorageAccount account = CloudStorageAccount
+					.parse(AzureSettings.storageConnection);
+			CloudBlobClient blobClient = account.createCloudBlobClient();
+			CloudBlobContainer container = blobClient
+					.getContainerReference("mycontainer");
+			container.createIfNotExists();
+			CloudBlockBlob blockBlob = container
+					.getBlockBlobReference("test.txt");
+			BlobOutputStream blobOutputStream = blockBlob.openOutputStream();
+			String content = "hello, I want to input some information to test.txt file.";
+			byte[] buffer = content.getBytes();
+			ByteArrayInputStream inputStream = new ByteArrayInputStream(buffer);
+			int next = inputStream.read();
+			while (next != -1) {
+				blobOutputStream.write(next);
+				next = inputStream.read();
+			}
+			blobOutputStream.close();
+		} catch (Exception e) {
+
 		}
 	}
 }

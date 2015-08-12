@@ -44,19 +44,17 @@ public class frameControl {
 		Button button = new Button("azure Rest API");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				visibleThis("azureRest");
-				//JOptionPane.showMessageDialog(null, "test");
-				/*frame.getContentPane().add(indexPanelIndex,BorderLayout.CENTER);
-				System.out.println("new panel created");//for debugging purposes
-		          
-				indexPanelIndex.setVisible(true);*/
+				visibleThis("azureRest");			
 			}
 		});
 		button.setBackground(Color.MAGENTA);
 		panel.add(button);
+		//frame. pack();
+		frame.setLocationRelativeTo(null);
 		return frame;
 	}
 
+	
 	public JFrame addAzureRestAPIFrame(String frameName)
 	{
 		JFrame frame=	new TextEditorDemo();

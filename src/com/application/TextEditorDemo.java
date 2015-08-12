@@ -38,11 +38,12 @@ public class TextEditorDemo extends JFrame  {
 	 
 	 public JPanel initPanel()
 	 {
-		 JPanel  panel = new JPanel();
+		  JPanel  panel = new JPanel();
 
 	      RSyntaxTextArea textArea = new RSyntaxTextArea(20, 60);
-	      textArea.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_JAVA);
+	      textArea.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_XML);
 	      panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+	    
 	      
 	      JButton btnNewButton = new JButton("get Result");     
 	  

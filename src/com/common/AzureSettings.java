@@ -11,4 +11,10 @@ public interface AzureSettings {
 	String keyStorePath="D:\\OpenSource\\java\\bin\\AzureKeyStore.jks";
 	String keyStorePassword="test123";
 	
+	String sqlconnectionString="jdbc:sqlserver://cdf5wkfy87.database.windows.net:1433;"
+			+ "database=javasql;user=jambor@cdf5wkfy87;password=123Aking;encrypt=true;"
+			+ "hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
+
+    
+	
 }
