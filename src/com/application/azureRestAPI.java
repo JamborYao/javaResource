@@ -7,6 +7,7 @@ import org.fife.ui.rsyntaxtextarea.SyntaxConstants;
 import org.fife.ui.rtextarea.RTextScrollPane;
 
 import com.azuredemo.listAutomation;
+import com.azuredemo.uploadToStorage;
 
 import java.awt.Button;
 import java.awt.Label;
@@ -14,6 +15,8 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.TextArea;
+
+import javax.swing.JButton;
 
 public class azureRestAPI extends JPanel {
 	public azureRestAPI() {
@@ -39,6 +42,16 @@ public class azureRestAPI extends JPanel {
 		button.setBackground(Color.GREEN);
 		button.setBounds(316, 246, 124, 44);
 		add(button);
+		
+		JButton btnUploadFile = new JButton("Upload File");
+		btnUploadFile.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				uploadToStorage fileUpload=new uploadToStorage();
+				fileUpload.upload();
+			}
+		});
+		btnUploadFile.setBounds(0, 254, 89, 23);
+		add(btnUploadFile);
 		
 	 /*   textArea = new TextArea();
 		textArea.setBounds(30, 21, 380, 160);
