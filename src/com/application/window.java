@@ -11,6 +11,7 @@ import javax.swing.JButton;
 
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
 import org.fife.ui.rsyntaxtextarea.SyntaxConstants;
+import org.fife.ui.rsyntaxtextarea.modes.WindowsBatchTokenMaker;
 import org.fife.ui.rtextarea.RTextScrollPane;
 import org.omg.CORBA.PRIVATE_MEMBER;
 
@@ -26,6 +27,9 @@ import java.awt.Button;
 import java.awt.FlowLayout;
 import java.awt.TextField;
 import java.awt.Color;
+import java.awt.Window;
+
+import javax.swing.JPanel;
 
 public class window {
 
@@ -39,7 +43,11 @@ public class window {
 			public void run() {
 				try {
 					window window = new window();
-					window.frame.setVisible(true);
+					//window.frame.setVisible(true);
+					/*TextEditorDemo rTextEditorDemo=	new TextEditorDemo();
+					
+					rTextEditorDemo.setVisible(false);*/
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -51,7 +59,9 @@ public class window {
 	 * Create the application.
 	 */
 	public window() {
-		initialize();
+		frameControl framesLoad=new frameControl();
+		//frame=framesLoad.getFrames()[0];
+		//initialize();
 	}
 
 	/**
@@ -66,8 +76,15 @@ public class window {
 		//frame.getContentPane().add(panel, BorderLayout.NORTH);
 		azureRestAPI panelApi=new azureRestAPI();
 		
-		frame.getContentPane().add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
+		frame.getContentPane().add(panel, BorderLayout.NORTH);
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		JPanel panel_1 = new JPanel();
+		panel.add(panel_1);
+		
+	
+		
+		//rTextEditorDemo.set
 		
 		Button button = new Button("azure Rest API");
 		button.addActionListener(new ActionListener() {
@@ -86,7 +103,6 @@ public class window {
 			}
 		});
 		button.setBackground(Color.MAGENTA);
-		button.setBounds(10, 47, 95, 30);
 		panel.add(button);
 		
 		

@@ -31,14 +31,10 @@ public class azureRestAPI extends JPanel {
 			
 			}
 		});
-		RSyntaxTextArea rtextArea = new RSyntaxTextArea(120, 60);
-	      rtextArea.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_JAVA);
-	      //rtextArea.setCodeFoldingEnabled(true);
-	      RTextScrollPane sp = new RTextScrollPane(rtextArea);
-	      add(sp);
-	      rtextArea.setText("test application");
-	    rtextArea.setVisible(true);
-	      
+	/*	TextEditorDemo editorDemo=new TextEditorDemo();
+		editorDemo.setVisible(true);
+	    add(editorDemo);  */
+		
 		button.setBackground(Color.GREEN);
 		button.setBounds(316, 246, 124, 44);
 		add(button);
